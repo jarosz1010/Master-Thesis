@@ -7,12 +7,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="temp_chart.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="temp_chart.png" />
-  </ItemGroup>
-
 </Project>

@@ -5,18 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praca_magisterska"
         mc:Ignorable="d"
-        Title="MainWindow" Height="727" Width="1109">
-    <Grid>
-        <TextBlock x:Name="tekst1" HorizontalAlignment="Left" Margin="465,120,0,0" TextWrapping="Wrap" Text="Tu pojawia sie obliczenia!" VerticalAlignment="Top" Height="300" Width="568"/>
-        <Image x:Name="temporary_image" HorizontalAlignment="Left" Height="300" Margin="38,120,0,0" VerticalAlignment="Top" Width="300" Source="/temp_chart.png"/>
-        <Label x:Name="title1" Content="Aplikacja badająca algorytmy rozwiązujące dynamiczny problem marszrutyzacji" FontSize="14" Margin="300,23,271,657" FontWeight="Bold"/>
-        <Button x:Name="dijkstra_button" Content="Oblicz trase!" HorizontalAlignment="Left" Margin="38,630,0,0" VerticalAlignment="Top" Height="40" Width="155" Click="dijkstra_button_Click"/>
-        <Slider x:Name="train_number_slider" HorizontalAlignment="Left" Margin="266,449,0,0" VerticalAlignment="Top" Width="120" Minimum="1" SmallChange="9" TickPlacement="Both" ValueChanged="train_number_slider_ValueChanged" IsSnapToTickEnabled="True"/>
-        <Button x:Name="Simple_Button" Content="    Oblicz koszt&#xA;kolejności z pliku" HorizontalAlignment="Left" Margin="251,630,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="Simple_Button_Click"/>
-        <Button x:Name="SA_button" Content="Symulowane wyżarzanie" HorizontalAlignment="Left" Margin="925,625,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="SA_button_Click"/>
-        <Label x:Name="train_number_label" Content="Ilość pociągów&#xD;&#xA;" HorizontalAlignment="Left" Margin="279,479,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
-        <TextBlock x:Name="train_number_value" HorizontalAlignment="Left" Margin="1033,352,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="42"/>
-        <Button x:Name="TS_button" Content="Tabu Search" HorizontalAlignment="Left" Margin="703,625,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="TS_button_Click"/>
+        Title="Praca Magisterska" Height="858" Width="1256">
+    <Grid Margin="0,0,10,-6">
+
+
+        <ScrollViewer Margin="634,89,105,519" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+
+            <TextBlock x:Name="tekst1"  TextWrapping="WrapWithOverflow" Text="Tu pojawia sie obliczenia!" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="417" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.366"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+
+        </ScrollViewer>
+
+
+        <Slider x:Name="train_number_slider" HorizontalAlignment="Left" Margin="27,740,0,0" VerticalAlignment="Top" Width="120" Minimum="1" SmallChange="9" TickPlacement="Both" ValueChanged="train_number_slider_ValueChanged" IsSnapToTickEnabled="True" Maximum="20"/>
+        <Button x:Name="Simple_Button" Content="       Zamówienia &#xA;w kolejności losowej" HorizontalAlignment="Left" Margin="435,758,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="Simple_Button_Click" FlowDirection="LeftToRight" FontWeight="Bold" Grid.Column="4"/>
+        <Button x:Name="button_SA" Content="Oblicz algorytmem SA" HorizontalAlignment="Left" Margin="961,758,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="SA_button_Click" FontWeight="Bold" FontStretch="Normal" FontStyle="Normal" Grid.Column="4"/>
+        <Label x:Name="label_Trains" Content="Ilość pociągów&#xA;" HorizontalAlignment="Left" Margin="38,773,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBlock x:Name="train_number_value" HorizontalAlignment="Left" Margin="167,740,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="46" Text="1" TextAlignment="Center" FontSize="16" RenderTransformOrigin="1.109,0.609"/>
+        <Button x:Name="button_TS" Content="Oblicz algorytmem TS" HorizontalAlignment="Left" Margin="700,758,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="TS_button_Click" FontWeight="Bold" Grid.Column="4"/>
+        <Label x:Name="label_TS" Content="Parametry algorytmu &#xA;        Tabu Search" HorizontalAlignment="Left" Margin="708,569,0,0" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="LeftToRight" Grid.Column="4"/>
+        <Label x:Name="label_SA" Content="      Parametry algorytmu &#xA;Symulowanego Wyżarzania" HorizontalAlignment="Left" Margin="945,357,0,0" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="LeftToRight" Grid.Column="4"/>
+        <Label x:Name="label_Problem" Content="Parametry problemu " HorizontalAlignment="Left" Margin="114,590,0,0" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="LeftToRight" RenderTransformOrigin="1.702,0.526"/>
+        <TextBox x:Name="text_Order" HorizontalAlignment="Left" Margin="13,644,0,0" TextWrapping="Wrap" Text="orders.txt" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" TextAlignment="Center" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Label x:Name="label_Order" Content="Nazwa pliku z zamówieniami&#xA;" HorizontalAlignment="Left" Margin="4,682,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBox x:Name="text_Route" HorizontalAlignment="Left" Margin="211,644,0,0" TextWrapping="Wrap" Text="route.txt" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16" RenderTransformOrigin="1.036,0.701"/>
+        <Label x:Name="label_Route" Content="Nazwa pliku z trasą&#xA;" HorizontalAlignment="Left" Margin="229,682,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <Button x:Name="button_RandomGraph" Content="Generuj losowy graf" HorizontalAlignment="Left" Margin="20,378,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="button_RandomGraph_Click" FontWeight="Bold"/>
+        <TextBox x:Name="text_SA_temperature" HorizontalAlignment="Left" Margin="957,411,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16" TextChanged="text_SA_temperature_TextChanged" Grid.Column="4"/>
+        <TextBox x:Name="text_SA_alpha" HorizontalAlignment="Left" Margin="962,625,0,0" TextWrapping="Wrap" Text="0,95" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" TextAlignment="Center" Grid.Column="4"/>
+        <Label x:Name="label_SA_temperature" Content="Temperatura początkowa&#xA;" HorizontalAlignment="Left" Margin="955,441,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <Label x:Name="label_SA_alpha" Content="Parametr alfa&#xA;" HorizontalAlignment="Left" Margin="991,660,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <Label x:Name="label_Graph" Content="Generowanie losowego grafu" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="LeftToRight" RenderTransformOrigin="1.702,0.526"/>
+        <Slider x:Name="slider_Graph_density" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" Width="120" Maximum="100" Minimum="20" TickFrequency="5" ValueChanged="slider_Graph_density_ValueChanged" SmallChange="20" LargeChange="100" IsSnapToTickEnabled="True" RenderTransformOrigin="0.125,0.669"/>
+        <Label x:Name="label_Graph_density" Content="Procent wypełnienia grafu&#xA;" HorizontalAlignment="Left" Margin="26,208,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="30" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBox x:Name="text_Graph_file" HorizontalAlignment="Left" Margin="30,242,0,0" TextWrapping="Wrap" Text="route.txt" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Graph_file" Content="Nazwa pliku do zapisu grafu&#xA;" HorizontalAlignment="Left" Margin="19,278,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="28" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBox x:Name="text_Graph_tables" HorizontalAlignment="Left" Margin="25,106,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Graph_density_Copy" Content="Ilość stolików w grafie&#xA;" HorizontalAlignment="Left" Margin="30,140,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="30" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBlock x:Name="text_Graph_density" HorizontalAlignment="Left" Margin="142,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="37" TextAlignment="Center" FontSize="16" RenderTransformOrigin="3.304,-12.927" Text="1"/>
+        <TextBox x:Name="text_TS_listlength" HorizontalAlignment="Left" Margin="700,625,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16" TextChanged="text_SA_temperature_TextChanged" Grid.Column="4"/>
+        <TextBox x:Name="text_SA_iterations" HorizontalAlignment="Left" Margin="957,470,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16" TextChanged="text_SA_temperature_TextChanged" RenderTransformOrigin="0.6,3.268" Grid.Column="4"/>
+        <Label x:Name="label_SA_iterations" Content="Ilość iteracji dla każdej z temperatur&#xA;" HorizontalAlignment="Left" Margin="925,500,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <RadioButton x:Name="radio_SA_linear" Content="Liniowy" HorizontalAlignment="Left" Margin="988,534,0,0" VerticalAlignment="Top" GroupName="SA_schedule" IsChecked="True" Grid.Column="4"/>
+        <RadioButton x:Name="radio_SA_geometrical" Content="Geometryczny" HorizontalAlignment="Left" Margin="988,554,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.542,-2.939" GroupName="SA_schedule" Grid.Column="4"/>
+        <RadioButton x:Name="radio_SA_logaritmical" Content="Logarytmiczny" HorizontalAlignment="Left" Margin="988,576,0,0" VerticalAlignment="Top" GroupName="SA_schedule" Grid.Column="4"/>
+        <Label x:Name="label_SA_schedule" Content="Schemat chłodzenia&#xA;" HorizontalAlignment="Left" Margin="971,596,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <TextBox x:Name="text_SA_stopcrit" HorizontalAlignment="Left" Margin="962,689,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" TextAlignment="Center" Grid.Column="4"/>
+        <Label x:Name="label_SA_stopcrit" Content="Kryterium stopu&#xA;" HorizontalAlignment="Left" Margin="991,724,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <Label x:Name="label_TS_listlength" Content="Długość listy Tabu&#xA;" HorizontalAlignment="Left" Margin="721,660,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <TextBox x:Name="text_TS_stopcrit" HorizontalAlignment="Left" Margin="705,689,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16" TextChanged="text_SA_temperature_TextChanged" Grid.Column="4"/>
+        <Label x:Name="label_TS_stopcrit" Content="Kryterium stopu&#xA;" HorizontalAlignment="Left" Margin="726,724,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967" Grid.Column="4"/>
+        <Label x:Name="label_Random_Order" Content="Generowanie losowych zamowien" HorizontalAlignment="Left" Margin="230,72,0,0" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="LeftToRight" RenderTransformOrigin="1.702,0.526"/>
+        <TextBox x:Name="text_Random_Order_Number" HorizontalAlignment="Left" Margin="254,103,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Random_Order_Number" Content="Ilosc zamowien&#xA;" HorizontalAlignment="Left" Margin="278,138,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBox x:Name="text_Random_Order_Max" HorizontalAlignment="Left" Margin="260,171,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Random_Order_Max" Content="Maksymalny numer stolika&#xA;" HorizontalAlignment="Left" Margin="249,206,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <TextBox x:Name="text_Random_Order_Break" HorizontalAlignment="Left" Margin="255,240,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Random_Order_Break" Content="Odstęp pomiędzy zamówieniami&#xA;" HorizontalAlignment="Left" Margin="236,275,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <Button x:Name="button_RandomOrder" Content="Generuj losowe zamówienia" HorizontalAlignment="Left" Margin="237,375,0,0" VerticalAlignment="Top" Height="40" Width="176" Click="button_RandomOrder_click" FontWeight="Bold"/>
+        <TextBox x:Name="text_Random_Order_File" HorizontalAlignment="Left" Margin="255,309,0,0" TextWrapping="Wrap" Text="order1.txt" VerticalAlignment="Top" Width="140" Height="30" TextAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_Random_Order_file" Content="Nazwa pliku do zapisu zamówień&#xA;" HorizontalAlignment="Left" Margin="229,339,0,0" VerticalAlignment="Top" FontWeight="DemiBold" Height="29" RenderTransformOrigin="-0.726,1.967"/>
+        <Button x:Name="Natural_Button" Content="Zamówienia posortowane&#xA;      po numerze stolika" HorizontalAlignment="Left" Margin="435,691,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="Natural_Button_Click" FontWeight="Bold" Grid.Column="4"/>
+        <Button x:Name="Available_Button" Content="Zamówienia posortowane&#xA;   po czasie dostępności" HorizontalAlignment="Left" Margin="435,622,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="Available_Button_Click" FontWeight="Bold" Grid.Column="4"/>
+        <Label x:Name="label_Application" Content="Aplikacja do badań algorytmów rozwiązujących dynamiczny problem marszrutyzacji" HorizontalAlignment="Left" Margin="267,10,0,0" VerticalAlignment="Top" Height="38" Width="568" FontSize="14" FontWeight="Bold" Grid.Column="4"/>
+        <Label x:Name="label_Author" Content="Wykonał: Michał Jaroszczuk" HorizontalAlignment="Left" Margin="962,10,0,0" VerticalAlignment="Top" Height="46" Width="158" Grid.Column="4"/>
 
     </Grid>
 </Window>
